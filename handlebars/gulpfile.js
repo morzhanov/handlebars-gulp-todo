@@ -10,7 +10,7 @@ gulp.task('css', function () {
   return gulp.src('./src/css/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
-    .pipe(gulp.dest('./src/css'));
+    .pipe(gulp.dest('./dist/css'));
 });
 gulp.task('css:watch', function () {
   gulp.watch('./src/css/*.scss', ['css']);
