@@ -14,5 +14,12 @@
     "materialize"
   ],
   "author": "Vlad Morzhanov",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^7.0.1",
+    "autoprefixer": "^8.4.0",
+    "gulp-sass": "^4.0.1"
+  }
 }
