@@ -2,6 +2,7 @@ const postcss = require('gulp-postcss');
 const gulp = require('gulp');
 const autoprefixer = require('autoprefixer');
 const sass = require('gulp-sass');
+const babel = require('gulp-babel');
 
 gulp.task('css', function () {
   const plugins = [
@@ -15,3 +16,17 @@ gulp.task('css', function () {
 gulp.task('css:watch', function () {
   gulp.watch('./src/css/*.scss', ['css']);
 });
+
+gulp.task('es6', () => {
+  gulp.src('./src/*.js')
+    .pipe(babel({
+      ignore: 'gulpfile.js'
+    }))
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('es6:watch', () => {
+  gulp.watch('./src/*.js', ['es6']);
+});
+
+gulp.task('default', ['es6', 'es6:watch', 'css', 'css:watch']);

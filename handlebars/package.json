@@ -1,25 +1,33 @@
 {
-  "name": "handlebars_gulp_postcss_sass_materialize",
+  "name": "handlebars_gulp_postcss_sass",
   "version": "1.0.0",
   "description": "example TODO app",
   "main": "index.js",
   "scripts": {
-    "test": "yarn test"
+    "css": "gulp css",
+    "css:watch": "gulp css:watch",
+    "es6": "gulp css",
+    "es6:watch": "gulp css",
+    "gulp": "gulp"
   },
   "keywords": [
     "handlebars",
     "gulp",
     "postcss",
-    "sass",
-    "materialize"
+    "sass"
   ],
   "author": "Vlad Morzhanov",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "todomvc-app-css": "^2.1.1",
+    "todomvc-common": "^1.0.5"
+  },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-postcss": "^7.0.1",
     "autoprefixer": "^8.4.0",
+    "babel-core": "^6.26.3",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-postcss": "^7.0.1",
     "gulp-sass": "^4.0.1"
   }
 }

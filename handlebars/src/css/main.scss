@@ -1,0 +1,15 @@
+@import '../../node_modules/todomvc-common/base.css';
+@import '../../node_modules/todomvc-app-css/index.css';
+
+body {
+  background-color: #f5f3b9;
+}
+
+.todoapp {
+  header {
+    h1 {
+      color: #8418c3;
+      opacity: 0.5;
+    }
+  }
+}
