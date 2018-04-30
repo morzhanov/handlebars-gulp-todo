@@ -1,8 +1,9 @@
+'use strict';
+
 const postcss = require('gulp-postcss');
 const gulp = require('gulp');
 const autoprefixer = require('autoprefixer');
 const sass = require('gulp-sass');
-const babel = require('gulp-babel');
 
 gulp.task('css', function () {
   const plugins = [
@@ -19,9 +20,6 @@ gulp.task('css:watch', function () {
 
 gulp.task('es6', () => {
   gulp.src('./src/*.js')
-    .pipe(babel({
-      ignore: 'gulpfile.js'
-    }))
     .pipe(gulp.dest('./dist'));
 });
 
