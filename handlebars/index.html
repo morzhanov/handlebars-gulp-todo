@@ -8,38 +8,43 @@
     <link rel="stylesheet" href="./dist/css/main.css">
 </head>
 <body>
-<section class="todoapp">
-    <header class="header">
+<section id="todoapp" class="todoapp">
+    <header id="header"  class="header"></header>
+    <section id="main" class="main"></section>
+    <script id="header-template" type="text/x-handlebars-template">
         <h1>todos</h1>
-        <input class="new-todo" placeholder="What needs to be done?" autofocus>
-    </header>
-    <!-- This section should be hidden by default and shown when there are todos -->
-    <section class="main">
+        <input class="new-todo"
+               placeholder="What needs to be done?"
+               autofocus>
+    </script>
+    <script id="main-template" type="text/x-handlebars-template">
         <input id="toggle-all" class="toggle-all" type="checkbox">
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
-            <!-- These are here just to show the structure of the list items -->
-            <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
+            {{#each todos}}
+            {{#if done}}
             <li class="completed">
+            {{else}}
+            <li>
+            {{/if}}
                 <div class="view">
+                    {{#if done}}
                     <input class="toggle" type="checkbox" checked>
-                    <label>Taste JavaScript</label>
+                    {{else}}
+                    <input class="toggle" type="checkbox">
+                    {{/if}}
+                    <label>{{content}}</label>
                     <button class="destroy"></button>
                 </div>
                 <input class="edit" value="Create a TodoMVC template">
             </li>
-            <li>
-                <div class="view">
-                    <input class="toggle" type="checkbox">
-                    <label>Buy a unicorn</label>
-                    <button class="destroy"></button>
-                </div>
-                <input class="edit" value="Rule the web">
-            </li>
+            {{/each}}
         </ul>
-    </section>
+    </script>
 </section>
-<script type="module" src="./node_modules/lodash/lodash.js"></script>
+<script type="module" src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script type="module" src="./node_modules/lodash/lodash.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
 <script type="module" src="./dist/app.js"></script>
 </body>
 </html>
