@@ -22,11 +22,7 @@
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
             {{#each todos}}
-            {{#if done}}
-            <li class="completed">
-            {{else}}
-            <li>
-            {{/if}}
+            <li class="{{#if done}}completed{{/if}} {{#if edit}}editing{{/if}}">
                 <div data-id="{{id}}" class="view">
                     <input {{#if done}}checked{{/if}}
                            class="toggle"
@@ -34,6 +30,7 @@
                     <label>{{content}}</label>
                     <button class="destroy"></button>
                 </div>
+                <input class="edit" value="{{content}}">
             </li>
             {{/each}}
         </ul>
