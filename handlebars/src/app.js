@@ -13,7 +13,6 @@ class State {
 
   addTodo (todo) {
     this.todos.push(todo)
-    console.log(`todos count = ${this.todos.length}`)
     renderMain()
   }
 
@@ -22,7 +21,8 @@ class State {
   }
 
   toggleDone (id) {
-    return _.find(this.todos, o => o.id === id)
+    const todo = _.find(this.todos, o => o.id === +id)
+    todo.done = !todo.done
   }
 }
 
@@ -30,6 +30,16 @@ const header = $('#header')[0]
 const main = $('#main')[0]
 const state = new State()
 let newInput
+
+const initCheckboxes = () => {
+  const checkboxes = $('input.toggle')
+  _.each(checkboxes, el => {
+    $(el).change(e => {
+      state.toggleDone(e.target.dataset.id)
+      console.log(state)
+    })
+  })
+}
 
 const renderHeader = () => {
   const template = $('#header-template').html()
@@ -42,6 +52,7 @@ const renderMain = () => {
   const templateScript = Handlebars.compile(template)
   const context = { todos: state.todos }
   main.innerHTML = templateScript(context)
+  initCheckboxes()
 }
 
 const init = () => {

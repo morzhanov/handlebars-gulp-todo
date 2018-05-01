@@ -28,15 +28,13 @@
             <li>
             {{/if}}
                 <div class="view">
-                    {{#if done}}
-                    <input class="toggle" type="checkbox" checked>
-                    {{else}}
-                    <input class="toggle" type="checkbox">
-                    {{/if}}
+                    <input data-id="{{id}}"
+                           {{#if done}}checked{{/if}}
+                           class="toggle"
+                           type="checkbox">
                     <label>{{content}}</label>
                     <button class="destroy"></button>
                 </div>
-                <input class="edit" value="Create a TodoMVC template">
             </li>
             {{/each}}
         </ul>
