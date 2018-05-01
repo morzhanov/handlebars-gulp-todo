@@ -27,9 +27,8 @@
             {{else}}
             <li>
             {{/if}}
-                <div class="view">
-                    <input data-id="{{id}}"
-                           {{#if done}}checked{{/if}}
+                <div data-id="{{id}}" class="view">
+                    <input {{#if done}}checked{{/if}}
                            class="toggle"
                            type="checkbox">
                     <label>{{content}}</label>

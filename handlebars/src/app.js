@@ -17,12 +17,14 @@ class State {
   }
 
   removeTodo (id) {
-
+    _.remove(this.todos, { id: id })
+    renderMain()
   }
 
   toggleDone (id) {
-    const todo = _.find(this.todos, o => o.id === +id)
+    const todo = _.find(this.todos, o => o.id === id)
     todo.done = !todo.done
+    renderMain()
   }
 }
 
@@ -35,8 +37,18 @@ const initCheckboxes = () => {
   const checkboxes = $('input.toggle')
   _.each(checkboxes, el => {
     $(el).change(e => {
-      state.toggleDone(e.target.dataset.id)
-      console.log(state)
+      const parent = e.target.parentElement
+      state.toggleDone(+parent.dataset.id)
+    })
+  })
+}
+
+const initDeleteButtons = () => {
+  const deleteButtons = $('button.destroy')
+  _.each(deleteButtons, el => {
+    $(el).click(e => {
+      const parent = e.target.parentElement
+      state.removeTodo(+parent.dataset.id)
     })
   })
 }
@@ -53,6 +65,7 @@ const renderMain = () => {
   const context = { todos: state.todos }
   main.innerHTML = templateScript(context)
   initCheckboxes()
+  initDeleteButtons()
 }
 
 const init = () => {
