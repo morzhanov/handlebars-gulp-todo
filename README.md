@@ -2,8 +2,8 @@
 
 <a href="https://imgur.com/Ew3gUFW"><img src="https://i.imgur.com/Ew3gUFW.png" title="source: imgur.com" /></a>
 
-<p>This's simple TODO app written with Handlebars and ES6.</p>
-<p>Gulp configured to use ES6 scripts transpiled using Babel with SASS and PostCSS.
+<p>This TODO app demonstrates how to create simple app using <a href="https://handlebarsjs.com/">Handlebars</a> and ES6.
+<p>Created <a href="https://gulpjs.com/">Gulp</a> configuration to use ES6 scripts transpiled using Babel with SASS and PostCSS.
 <p>Application served using Node.JS and node-static package.
 <p>ESLint used to lint javascript code.
 
